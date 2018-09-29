@@ -8,7 +8,82 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      page: 'About',
+      option: null,
+      fadeout: false,
+    }
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(event) {
+    let page = event.target.id;
+    
+    let fadeoutpromise = new Promise(function(resolve, reject) {
+        setTimeout(function() { 
+        resolve();
+      }, 2000);
+    });
+
+    fadeoutpromise.then((option) => this.setState({option: page})); 
+
+    this.setState({fadeout: true}); 
+  }
+
+  render() {
+    const { option, fadeout } = this.state;
+    console.log(option);
+    return(
+      <div>
+        {option 
+          ? <MainPage option={option} /> 
+          : <FrontPage fadeout={fadeout} onClick={this.onClick}/>}
+      </div>
+    );
+  }
+}
+
+
+const FrontPage = ({ onClick, fadeout }) =>
+  <div className={fadeout ? "fadeoutfp" : "frontpage"}> 
+      <div className="frontelements">
+        <h2 className="title"> Armando Mossuto </h2>
+        <h5 className="subtitle"> Front-End Developper </h5>
+        <div className="options">
+          <span 
+            id="About" 
+            onClick={onClick}
+          >
+            About
+          </span>
+          <span
+            id="Skills" 
+            onClick={onClick}
+          >
+            Skills
+          </span>
+          <span
+            id="CV" 
+            onClick={onClick}
+          >
+            CV
+          </span>
+          <span
+            id="Projects" 
+            onClick={onClick}
+          >
+            Projects
+          </span>
+        </div>
+      </div>
+  </div>
+  
+
+class MainPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      page: this.props.option,
     }
     this.pageCall = this.pageCall.bind(this);
   }
