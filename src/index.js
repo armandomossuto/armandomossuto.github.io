@@ -68,10 +68,10 @@ const FrontPage = ({ onClick, fadeout }) =>
             CV
           </span>
           <span
-            id="Projects" 
+            id="Portfolio" 
             onClick={onClick}
           >
-            Projects
+            Portfolio
           </span>
         </div>
       </div>
@@ -105,8 +105,8 @@ class MainPage extends React.Component {
           case 'CV':
             return(<CV />);
               break;
-          case 'Projects':
-            return(<Projects />);
+          case 'Portfolio':
+            return(<Portfolio />);
               break;  
           case 'Contact':
             return(<Contact />);
@@ -127,7 +127,7 @@ class SideBar extends React.Component {
     super(props);
 
     this.state = {
-      elements: ['About','Skills','CV','Projects','Contact'],
+      elements: ['About','Skills','CV','Portfolio','Contact'],
     }
 
     this.onClick = this.onClick.bind(this);
@@ -317,15 +317,68 @@ const CV = () =>
   </div>
 
 
-const Projects = () =>
-  <div> 
-    Projects
+const Portfolio = () =>
+  <div className="projectspage"> 
+    <h2>Portfolio</h2>
+    <div className="projectsbox">
+      <div className="projectrow">
+          <div className="projectelement">
+            <a href="/weather-app" target="_blank" rel="noopener noreferrer">
+            </a>
+          </div>
+        <p>Lisbon Weather App</p>
+      </div>
+     <div className="projectrow">
+        <div className="projectelement">
+        </div>
+        <p>Lisbon Weather App</p>
+      </div>
+    </div>
+     <div className="projectsbox">
+      <div className="projectrow">
+        <div className="projectelement">
+        </div>
+        <p>Lisbon Weather App</p>
+      </div>
+     <div className="projectrow">
+        <div className="projectelement">
+        </div>
+        <p>Lisbon Weather App</p>
+      </div>
+    </div>   
   </div>
 
 
 const Contact = () =>
-  <div> 
-    Contact
+  <div className="projectspage"> 
+    <h2> Contact Me </h2>
+    <div className="contactinfo"> 
+      <div className="flexbox">
+        <p> E-mail </p>
+        <p> Telephone </p>
+      </div>
+      <div className="flexbox">
+        <p> armandomossuto@gmail.com </p>
+        <p> +351915931095 </p>
+      </div>
+      <a href='https://pt.linkedin.com/in/armando-mossuto-moreno-5787868' title="Linkedin Profile" target="_blank" rel="noopener noreferrer">
+        <img src='In-2C-54px-R.png' alt='Linkdn Logo Link' />
+      </a>
+      <a href='https://github.com/armandomossuto' title="Github Repositories" target="_blank" rel="noopener noreferrer">
+        <img src="GitHub_Logo.png" alt="Github Logo Link" /> 
+      </a>
+    </div>
+    <form action="http://formspree.io/armandomossuto@gmail.com" method="POST" >
+     <h3> Contact Form </h3>
+      <label>Name</label>
+      <input type="text" name="name" />        
+      <label>E-mail</label>
+      <input type="email" name="mail" />
+      <label>Comments</label>
+      <textarea   name="body">
+      </textarea>
+      <input type="submit" value="Send" />
+    </form>
   </div>
 
 ReactDOM.render(
