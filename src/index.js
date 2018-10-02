@@ -89,6 +89,10 @@ class MainPage extends React.Component {
   }
 
   pageCall(element) {
+    if (element === this.state.page) {
+      return;
+    }
+
     this.setState({page: element});
   }
 
@@ -116,7 +120,7 @@ class MainPage extends React.Component {
     return(
       <div>
         <SideBar onChange={this.pageCall} page={page} />
-          <PageName />
+        <PageName />
       </div>
     );
   }
@@ -349,37 +353,69 @@ const Portfolio = () =>
   </div>
 
 
-const Contact = () =>
-  <div className="projectspage"> 
-    <h2> Contact Me </h2>
-    <div className="contactinfo"> 
-      <div className="flexbox">
-        <p> E-mail </p>
-        <p> Telephone </p>
-      </div>
-      <div className="flexbox">
-        <p> armandomossuto@gmail.com </p>
-        <p> +351915931095 </p>
-      </div>
-      <a href='https://pt.linkedin.com/in/armando-mossuto-moreno-5787868' title="Linkedin Profile" target="_blank" rel="noopener noreferrer">
-        <img src='In-2C-54px-R.png' alt='Linkdn Logo Link' />
-      </a>
-      <a href='https://github.com/armandomossuto' title="Github Repositories" target="_blank" rel="noopener noreferrer">
-        <img src="GitHub_Logo.png" alt="Github Logo Link" /> 
-      </a>
-    </div>
-    <form action="http://formspree.io/armandomossuto@gmail.com" method="POST" >
-     <h3> Contact Form </h3>
-      <label>Name</label>
-      <input type="text" name="name" />        
-      <label>E-mail</label>
-      <input type="email" name="mail" />
-      <label>Comments</label>
-      <textarea   name="body">
-      </textarea>
-      <input type="submit" value="Send" />
-    </form>
-  </div>
+class Contact extends React.Component {
+  
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      form: false,
+      formwindow: false,
+    }
+
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+    let formData = new FormData();
+    formData.append('Name', 'John');
+    formData.append('mail', 'John123');
+    formData.append('body', 'assdsd');
+    fetch('http://formspree.io/armandomossuto@gmail.com', {
+      method: 'POST',
+      body: "formData"
+    }).then(function(response) {
+    console.log(response);
+    })
+  }
+
+  render() {
+    return(
+      <div className="projectspage"> 
+          <h2> Contact Me </h2>
+          <div className="contactinfo"> 
+            <div className="flexbox">
+              <p> E-mail </p>
+              <p> Telephone </p>
+            </div>
+            <div className="flexbox">
+              <p> armandomossuto@gmail.com </p>
+              <p> +351915931095 </p>
+            </div>
+            <a href='https://pt.linkedin.com/in/armando-mossuto-moreno-5787868' title="Linkedin Profile" target="_blank" rel="noopener noreferrer">
+              <img src='In-2C-54px-R.png' alt='Linkdn Logo Link' />
+            </a>
+            <a href='https://github.com/armandomossuto' title="Github Repositories" target="_blank" rel="noopener noreferrer">
+              <img src="GitHub_Logo.png" alt="Github Logo Link" /> 
+            </a>
+          </div>
+          <form onSubmit={this.onSubmit}>
+           <h3> Contact Form </h3>
+            <label>Name</label>
+            <input type="text" name="name" />        
+            <label>E-mail</label>
+            <input type="email" name="mail" />
+            <label>Comments</label>
+            <textarea   name="body">
+            </textarea>
+            <input type="submit" value="Send" />
+          </form>
+        </div>
+      );
+  }
+}
+  
 
 ReactDOM.render(
   <App />,
