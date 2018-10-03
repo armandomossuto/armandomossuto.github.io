@@ -92,9 +92,10 @@ class MainPage extends React.Component {
     if (element === this.state.page) {
       return;
     }
-
+    document.getElementById("mainpage").scrollTop = 0;
     this.setState({page: element});
   }
+
 
   render() {
     const {page} = this.state;
@@ -167,7 +168,7 @@ class SideBar extends React.Component {
       
 const About = () =>
   <div className="aboutpage"> 
-    <img src="infomatics_2.png" alt="Armando Mossuto's About me Photo" />
+    <img src="aboutmephoto.jpeg" alt="Armando Mossuto's About me Photo" />
     <div className="abouttext">
       <h2>About me </h2>
       <p> My name is Armando Mossuto and I am a web developer from Venezuela. I live in Lisbon, Portugal, with my wife and our son.  I hold a 
@@ -327,7 +328,7 @@ const Portfolio = () =>
     <div className="projectsbox">
       <div className="projectrow">
           <div className="projectelement">
-            <a href="/weather-app" target="_blank" rel="noopener noreferrer">
+            <a href="/Weather-App/" target="_blank" rel="noopener noreferrer">
             </a>
           </div>
         <p>Lisbon Weather App</p>
@@ -377,6 +378,7 @@ class Contact extends React.Component {
       body: "formData"
     }).then(function(response) {
     console.log(response);
+    window.alert("Sent succesfully")
     })
   }
 
