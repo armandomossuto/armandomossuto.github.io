@@ -496,20 +496,21 @@ class Contact extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    let formData = new FormData();
-    formData.append('Name', 'John');
-    formData.append('mail', 'John123');
-    formData.append('body', 'assdsd');
-    fetch('https://formspree.io/armandomossuto@gmail.com', {
+    const form = document.getElementById("myform");
+
+  fetch('https://formspree.io/armandomossuto@gmail.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({message: "hello!"})
+      body: JSON.stringify({
+        name: form.elements.name.value, 
+        mail: form.elements.mail.value, 
+        message: form.elements.body.value
+      })
     }).then(function(response) {
-    console.log(response);
-    window.alert("Sent succesfully")
-    })
+    window.alert("Your message has been received. Thank you. I will get in touch with you as soon as possible")
+    }) 
   }
 
   render() {
@@ -532,7 +533,7 @@ class Contact extends React.Component {
               <img src="GitHub_Logo.png" alt="Github Logo Link" /> 
             </a>
           </div>
-          <form  onSubmit={this.onSubmit}>
+          <form  id="myform" onSubmit={this.onSubmit}>
            <h3> Contact Form </h3>
             <label>Name</label>
             <input type="text" name="name" />        
