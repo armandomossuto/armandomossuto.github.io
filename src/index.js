@@ -454,30 +454,21 @@ const Portfolio = () =>
     <div className="projectsbox">
       <div className="projectrow">
           <div className="projectelement">
+            <a href="/Movie-Recommendation-App/" target="_blank" rel="noopener noreferrer">
+            <img src="recommendation-movie-app_photo.png" />
+            </a>
+          </div>
+        <p>Movie Recommendation App</p>
+      </div>
+      <div className="projectrow">
+          <div className="projectelement">
             <a href="/Weather-App/" target="_blank" rel="noopener noreferrer">
             <img src="weather-app_photo.png" />
             </a>
           </div>
         <p>Lisbon Weather App</p>
       </div>
-     <div className="projectrow">
-        <div className="projectelement">
-        </div>
-        <p>Film Editing Website</p>
-      </div>
     </div>
-     <div className="projectsbox">
-      <div className="projectrow">
-        <div className="projectelement">
-        </div>
-        <p>Dynamic Calculator</p>
-      </div>
-     <div className="projectrow">
-        <div className="projectelement">
-        </div>
-        <p>Countdown Timer</p>
-      </div>
-    </div>   
   </div>
 
 
@@ -554,16 +545,3 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
   );
-
-/*     
-
-  // Construct an HTTP request
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST","https://formspree.io/armandomossuto@gmail.com", true);
-    xhr.setRequestHeader('Accept', 'application/json; charset=utf-8');
-    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
- 
-    // Send the collected data as JSON
-    xhr.send(JSON.stringify({message: "Hello"}));
-
-*/
