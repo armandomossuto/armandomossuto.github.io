@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './Style/index.css';
+import { HashRouter as Router, Route} from 'react-router-dom';
+import Main from './Components/Main/main.js';
+import FrontPage from './Components/FrontPage/frontpage.js'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <Route exact path="/" component={FrontPage} />
+          <Route path="/main" component={Main} />
+        </div>
+      </Router>
+      );
+  }
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root'));
