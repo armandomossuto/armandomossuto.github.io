@@ -10,9 +10,13 @@ const Skills = () =>
           <div className="skillshow">
             <div id="js"></div>
           </div>
-          <p>React.JS</p>
+          <p>React.js</p>
           <div className="skillshow">
             <div id="react"></div>
+          </div>
+          <p>Ember.js</p>
+          <div className="skillshow">
+            <div id="ember"></div>
           </div>
         </div>
         <div className="rightskills">

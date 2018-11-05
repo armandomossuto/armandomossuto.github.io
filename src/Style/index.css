@@ -247,6 +247,12 @@ body {
 	height: 100%;
 }
 
+#ember{
+	width: 50%;
+	background-color: black;
+	height: 100%;
+}
+
 #html{
 	width: 70%;
 	background-color: black;
@@ -437,6 +443,11 @@ body {
 	opacity: 1;
 }
 
+.projectrow:hover > .projectelement div {
+	display: block;
+}
+
+
 .projectelement img {
 	height: 300px;
 	width: auto;
@@ -469,10 +480,23 @@ body {
 }
 
 .projectelement a {
+	position: relative;
 	display: block;
 	width: 100%;
 	height: 100%;
 }
+
+.projectelement > a > div {
+	display: none;
+	position: absolute;
+	bottom: 3px;
+	color: blue;
+} 
+
+
+.white-font > a > div {
+	color: white;
+} 
 
 .projectspage form{
 	display: flex;
