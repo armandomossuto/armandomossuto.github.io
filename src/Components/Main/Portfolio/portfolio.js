@@ -6,7 +6,7 @@ const Portfolio = () =>
     <div className="projectsbox">
     <div className="projectrow">
           <div className="projectelement">
-            <a href="/Job-Search-App-Source/" target="_blank" rel="noopener noreferrer">
+            <a href="/Job-Search-Ember-Source/" target="_blank" rel="noopener noreferrer">
               <img src="job-search-app_photo.png" />
               <div> Stack: Ember.js, SASS, Bootstrap </div>
             </a>
